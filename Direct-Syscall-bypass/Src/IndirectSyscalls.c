@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include "Structs.h"
-#include "HellsHall.h"
+#include "IndirectSyscalls.h"
 
 
 #define SEED        0xEDB88320
