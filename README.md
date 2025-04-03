@@ -12,7 +12,6 @@ HookBypassSuite (HBS) is a collection of proof-of-concept (PoC) implementations 
 ✅ **Kernel32 Hooking Bypass** – Eliminates userland hooks placed on Kernel32 functions.  
 ✅ **NT-Level Inline Hooking Bypass** – Neutralizes inline hooks at the NT function level.  
 ✅ **Direct Syscall Bypass** – Executes syscalls indirectly to direct syscall detection strategies. 
-
 ✅ **Indirect Syscall Bypass** – Uses Vectored Exception Handling with the approach of dynamic retrieval of SSNs with creation of legitimate stack to bypass already present strategies for detection present.  
 
 ---
