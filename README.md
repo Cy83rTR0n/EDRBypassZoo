@@ -1,11 +1,11 @@
-# HookBypassSuite (HBS) 🔥
+![AslanRoarGIF](https://github.com/user-attachments/assets/a5758fee-4645-48a2-88dd-09229ec24e4d)# EDRBypassZoo 
 
 **A research-driven suite showcasing various proof-of-concept (PoC) techniques to bypass userland hooking mechanisms, including IAT, Kernel32, and NT-level inline hooks, along with both direct and indirect syscall evasions.**
 
 ---
 
 ## 🚀 Overview
-HookBypassSuite (HBS) is a collection of proof-of-concept (PoC) implementations designed to evade various hooking mechanisms commonly employed by security products. It provides low-level techniques to restore original execution flow and bypass monitoring at different levels of the Windows operating system.
+EDRBypassZoo is a collection of proof-of-concept (PoC) implementations designed to evade various hooking mechanisms commonly employed by security products. It provides low-level techniques to restore original execution flow and bypass monitoring at different levels of the Windows operating system.
 
 ### 🔍 Features  
 ✅ **IAT Hooking Bypass** – Restores original API calls by evading Import Address Table (IAT) hooks.  
