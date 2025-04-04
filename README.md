@@ -1,4 +1,5 @@
-![AslanRoarGIF](https://github.com/user-attachments/assets/a5758fee-4645-48a2-88dd-09229ec24e4d)# EDRBypassZoo 
+# EDRBypassZoo
+![AslanRoarGIF](https://github.com/user-attachments/assets/a5758fee-4645-48a2-88dd-09229ec24e4d) 
 
 **A research-driven suite showcasing various proof-of-concept (PoC) techniques to bypass userland hooking mechanisms, including IAT, Kernel32, and NT-level inline hooks, along with both direct and indirect syscall evasions.**
 
