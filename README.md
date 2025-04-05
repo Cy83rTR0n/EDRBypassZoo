@@ -1,28 +1,64 @@
 # EDRBypassZoo
 ![AslanRoarGIF](https://github.com/user-attachments/assets/a5758fee-4645-48a2-88dd-09229ec24e4d) 
 
-**A research-driven suite showcasing various proof-of-concept (PoC) techniques to bypass userland hooking mechanisms, including IAT, Kernel32, and NT-level inline hooks, along with both direct and indirect syscall evasions.**
+**EDRBypassZoo** is a focused collection of proof-of-concept implementations aimed at bypassing userland EDR hooking mechanisms. This includes evasion of Import Address Table (IAT) hooks, Kernel32 API interceptions, NT-layer inline hooks, and syscall monitoring via both direct and indirect approaches.
 
 ---
 
-## 🚀 Overview
-EDRBypassZoo is a collection of proof-of-concept (PoC) implementations designed to evade various hooking mechanisms commonly employed by security products. It provides low-level techniques to restore original execution flow and bypass monitoring at different levels of the Windows operating system.
+## 🧩 Project Scope
 
-### 🔍 Features  
-✅ **IAT Hooking Bypass** – Restores original API calls by evading Import Address Table (IAT) hooks.  
-✅ **Kernel32 Hooking Bypass** – Bypasses userland hooks placed on Kernel32 functions to ensure unmonitored execution.  
-✅ **NT-Level Inline Hooking Bypass** – Identifies and neutralizes inline hooks at the NT function level to restore original code execution.  
-✅ **Direct Syscall Bypass** – Executes syscalls without relying on standard API calls, effectively circumventing direct syscall monitoring mechanisms.  
-✅ **Indirect Syscall Bypass** – Leverages Vectored Exception Handling (VEH) to dynamically retrieve System Service Numbers (SSNs) and construct a legitimate execution stack, bypassing existing syscall detection strategies.  
+This repository demonstrates low-level techniques to subvert runtime monitoring by security products and restore original execution flow at different OS layers. The project serves as a research base for exploring and validating modern bypass strategies used in red teaming and malware development.
 
 ---
 
-## ⚙️ Technical Details
-HBS employs advanced techniques to ensure stealthy and reliable unhooking:
-- **Restoring IAT Entries** – Dynamically resolves API calls to their original addresses.
-- **Syscall Stubs & Direct Execution** – Bypasses userland monitoring by invoking syscalls directly.
-- **Hook Detection & Removal** – Identifies and eliminates inline patches in NT functions.
-- **Memory Manipulation Techniques** – Restores original function prologues to counter inline hooks.
+## 📌 Implemented Techniques
+
+- **IAT Hooking Evasion**  
+  Resolves and restores original function pointers from the Import Address Table to bypass userland API redirection.
+
+- **Kernel32 Hook Bypass**  
+  Identifies and avoids hooks placed on high-level WinAPI functions (e.g., `OpenProcess`, `VirtualAllocEx`) by resolving lower-level equivalents or using direct memory access.
+
+- **NTDLL Inline Hook Removal**  
+  Scans and restores overwritten function prologues in NTDLL to neutralize inline hooks placed by EDRs.
+
+- **Direct Syscalls (Halo’s Gate)**  
+  Implements syscall stubs by resolving SSNs dynamically to execute native APIs without touching hooked functions.
+
+- **Indirect Syscalls (Tartarus Gate, VEH)**  
+  Bypasses syscall detection using Vectored Exception Handlers and hardware breakpoints to emulate execution flow and construct valid call stacks.
 
 ---
+
+## ⚙️ Core Techniques and Internals
+
+- **Dynamic API Resolution**  
+  Custom `GetProcAddress`/`GetModuleHandle` logic using PEB traversal to avoid touching hooked APIs.
+
+- **Fiber-Based Execution**  
+  Uses Windows Fibers for stealthy execution flow and context switching during injection.
+
+- **Hook Detection**  
+  Compares Syscall stubs by performing byte comparison to find out inline hooks in Various APIs.
+
+- **Syscall Spoofing**  
+  Implements call stack spoofing to evade indirect syscall heuristics and detection patterns.
+
+- **Hardware Breakpoints + VEH**  
+  Coordinates hardware breakpoints with VEH handlers to emulate syscalls and preserve realistic call traces.
+
+---
+
+## 📚 References & Credits
+
+The following resources were studied and adapted to develop various PoCs included in this repository:
+
+- [Layered Syscall - @AmunRha](https://whiteknightlabs.com/2024/07/31/layeredsyscall-abusing-veh-to-bypass-edrs/)
+- [Halo’s Gate – @_EthicalChaos_](https://www.ired.team/offensive-security/defense-evasion/hiding-your-shellcode-with-halosgate)  
+- [Tartarus Gate – @am0nsec](https://github.com/am0nsec/HellsGate)   
+- [PEB Traversal for API Resolution](https://www.ired.team/offensive-security/defense-evasion/windows-api-hash-resolving-and-manual-mapping)  
+- [Maldev Academy](https://maldevacademy.com/)  
+
+---
+
 
