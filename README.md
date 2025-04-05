@@ -56,7 +56,8 @@ The following resources were studied and adapted to develop various PoCs include
 - [Layered Syscall - @AmunRha](https://whiteknightlabs.com/2024/07/31/layeredsyscall-abusing-veh-to-bypass-edrs/)
 - [Halo’s Gate – @_EthicalChaos_](https://www.ired.team/offensive-security/defense-evasion/hiding-your-shellcode-with-halosgate)  
 - [Tartarus Gate – @am0nsec](https://github.com/am0nsec/HellsGate)   
-- [PEB Traversal for API Resolution](https://www.ired.team/offensive-security/defense-evasion/windows-api-hash-resolving-and-manual-mapping)  
+- [PEB Traversal for API Resolution](https://www.ired.team/offensive-security/defense-evasion/windows-api-hash-resolving-and-manual-mapping)
+- [Indirect Syscalls - @VirtualAllocEx](https://redops.at/en/blog/direct-syscalls-vs-indirect-syscalls)
 - [Maldev Academy](https://maldevacademy.com/)  
 
 ---
